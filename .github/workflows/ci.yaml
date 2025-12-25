@@ -1,3 +1,47 @@
+# name: Spam Detector CI
+
+# # Trigger: Run this whenever I push code
+# on: [push]
+
+# jobs:
+#   build-and-test:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     # 1. Download the code
+#     - name: Checkout code
+#       uses: actions/checkout@v3
+
+#     # 2. Install Python
+#     - name: Set up Python
+#       uses: actions/setup-python@v4
+#       with:
+#         python-version: '3.9'
+
+#     # 3. Install libraries
+#     - name: Install dependencies
+#       run: |
+#         python -m pip install --upgrade pip
+#         pip install -r requirements.txt
+#         pip install httpx
+
+#     # 4. Run Preprocessing (The missing step!)
+#     - name: Preprocess Data
+#       run: python src/preprocess.py
+
+#     # 5. Run the Model Training
+#     - name: Retrain Model
+#       run: python src/train.py
+
+#     # 6. Run the Tests
+#     - name: Run Tests
+#     #   run: pytest tests/test_app.py
+#     # 6. Run the Tests
+#     - name: Run Tests
+#       run: python -m pytest tests/test_app.py
+
+
+
 name: Spam Detector CI
 
 # Trigger: Run this whenever I push code
@@ -25,7 +69,7 @@ jobs:
         pip install -r requirements.txt
         pip install httpx
 
-    # 4. Run Preprocessing (The missing step!)
+    # 4. Run Preprocessing
     - name: Preprocess Data
       run: python src/preprocess.py
 
@@ -33,10 +77,6 @@ jobs:
     - name: Retrain Model
       run: python src/train.py
 
-    # 6. Run the Tests
-    - name: Run Tests
-    #   run: pytest tests/test_app.py
-    # 6. Run the Tests
+    # 6. Run the Tests (Fixed Indentation)
     - name: Run Tests
       run: python -m pytest tests/test_app.py
-
